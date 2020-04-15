@@ -1,0 +1,65 @@
+<div class="modal-header">
+    <h4 class="modal-title">Subject Code:</h4>
+    <button type="button" class="close" aria-label="Close"
+     (click)="activeModal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class = "container">
+<form [formGroup] = "myForm" (ngSubmit) = "submitForm()" ng-app="app" ng-controller="Controller as ctrl">
+    <div class = "modal-body">
+        
+            <div class = "form-group" [ngClass] = "{
+                'has-success' : Lab_No.valid&&Lab_No.dirty,
+                'has-danger':Lab_No.invalid&&Lab_No.dirty
+            }">
+                <label for="Lab_No">Lab No.</label>
+                <input type="number"
+                class = "form-control"
+                formControlName ="Lab_No" inputmode="numeric" placeholder = "00"
+                pattern="[0-9]*"  ng-model = "Lab_No" min = '2' max = '9' numbersOnly/>
+                <div style="color: red" >
+                <div class="form-control-feedback" *ngIf="Lab_No.errors && (Lab_No.dirty || Lab_No.touched)">
+                  <p *ngIf="Lab_No.errors.required">Lab_No is required</p>
+                </div>
+                <div ng-if = "myForm.Lab_No.$invalid">
+                  <p ng-show="myForm.Lab_No.$error.min || myForm.Lab_No.$error.max">
+                    Lab Number must be in range 2 to 9!</p>
+                    </div>
+           </div>
+                <!--<p>Dirty?{{Lab_No.dirty}}</p>
+                <p>Pristine?{{Lab_No.pristine}}</p>
+                <p>Touched?{{Lab_No.touched}}</p>
+                <p>Untouched?{{Lab_No.untouched}}</p>-->
+                
+            </div>
+            <div class = "form-group" [ngClass] = "{
+                'has-success' : question.valid&&question.dirty,
+                'has-danger':question.invalid&&question.dirty
+            }">
+                <label for = "question">Experiment Question</label>
+                <textarea class = "form-control" formControlName = "question" placeholder = "Enter your question here?"></textarea>
+                <div style="color: red" >
+                <div class="form-control-feedback"
+                *ngIf="question.errors && (question.dirty || question.touched)">
+             <p *ngIf="question.errors.required">Question is required</p>
+             <p *ngIf = "question.errors.maxlength">Question must be max 200 characters long</p>
+           </div>
+            </div></div>
+            </div>
+        </form>
+  </div>
+  <!--<div class="row">
+    <div class="col-md-10">-->
+        <div class="modal-footer" style="position: relative;" >
+            <button class = "btn btn-success " style = "position:absolute;left:12px;" (click) = "showPrev(id)">Previous</button>
+            <button class = "btn btn-success" style="position:absolute;left:110px" (click)="generateButton(true)">Save Changes</button>
+            <button class = "btn btn-success " aria-label="Close"
+            (click)="submitForm()">Submit button</button>
+            <button  class = "btn btn-success" style = "right:0;" >Next</button>
+          </div>
+   <!-- </div>
+  </div>
+          <pre>{{myForm.value|json}}</pre>-->
+
+
+  
