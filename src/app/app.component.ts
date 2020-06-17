@@ -1,6 +1,9 @@
 import { Component,ElementRef,Renderer2,ViewChild } from '@angular/core';
 import {NgbModule, NgbModal, NgbActiveModal, NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {FormModalComponent}  from './form-modal/form-modal.component';
+import {FormModalComponent}  from './components/form-modal/form-modal.component';
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component'
+
 //import { NewsComponent } from './news/news.component';
 import { Observable } from 'rxjs';
 
@@ -10,10 +13,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- // @ViewChild('buttonsContainer',{static:true})
-  //@ViewChild('FormModalComponent') FormViewChild : FormModalComponent;
- // buttonsContainer:ElementRef;
- // private renderer:Renderer2;
+    //@ViewChild('FormModalComponent') FormViewChild : FormModalComponent;
+ /*
   clientScrips = ["html", "css", "javascript", "angular", "react"];
   data = [
     { id: 100, name: "Mike" },
@@ -23,8 +24,10 @@ export class AppComponent {
     { id: 103, name: "Steve" }
   ];
   public message;
- public Links:any[] = [];
+*/
   title = 'ngModalForm';
+
+
 constructor(
     private modalService: NgbModal
 ){ };
@@ -33,37 +36,45 @@ openFormModal(){
     const modalRef = this.modalService.open(FormModalComponent,{
       centered:true
     });
-    modalRef.componentInstance.id= 10;
+   /* modalRef.componentInstance.id= 10;*/
     modalRef.result.then((result) => {
       console.log(result);
-      this.data = result;
+      //this.data = result;
     }).catch((error) => {
       console.log(error);
     });
 }
+// Via Promise
+/*
+error = false;
+ doAsyncTask() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (this.error) {
+        reject('error');
+      } else {
+        resolve('done');
+      }
+    }, 1000);
+  });
+};
+
+doAsyncTask().then(
+    (val) => console.log(val),
+    (err) => console.error(err)
+)
+
+// Immediately Resolved Promise
+let promise = Promise.resolve('done');
+promise.then((val) => console.log(val)); // 'done'
+
+// Handling Errors
+Promise.resolve('done')
+    .then((val) => {throw new Error("fail")})
+    .then((val) => console.log(val))
+    .catch((err) => console.error(err));*/
 /*generateButton(event)
 {
-  this.Links.push(this.data[0]);
-}
-/*
-generateButton(){
-  const button = this.renderer.createElement('button');
-    const color = this.getRandomColor();
-    this.renderer.setStyle(button,'background',color);
-    const text = this.renderer.createText('New button');
-    this.renderer.appendChild(button,text);
-    this.renderer.appendChild(this.buttonsContainer.nativeElement,button);
-}
-private getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-*/
-
-
+}*/
 
 }

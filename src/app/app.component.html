@@ -1,7 +1,20 @@
-<div style="text-align: center; border: 1px solid; ">
-<button  class = "btn btn-lg btn-outline-primary "(click) = "openFormModal() ">Open Modal</button>
+<app-header></app-header>
+<div class="m-t-1">
+  <router-outlet></router-outlet>
 </div>
-<h1>One dimensional Array</h1>
+<!--
+<H2><b>Configure injectors in Angular by viewProviders on Components</b></H2>
+
+<div class = "row">
+  <div class = "col-xs-6">
+    <parent></parent>
+  </div>
+  <div class = "col-xs-6">
+    <parent><child></child></parent>
+  </div>
+</div>
+-->
+<!--<h1>One dimensional Array</h1>
     <ul>
       <li *ngFor="let s of clientScrips | sortBy: 'asc'">{{ s }}</li>
     </ul>
@@ -17,16 +30,8 @@
       <li *ngFor="let s of data | sortBy: 'desc':'id'">
         {{ s.id }}-{{ s.name }}
       </li>
-    </ul>
-
-<!--<div  *ngFor = "let link of Links ; let i = index">
-    <a  href = "#">{{link}} {{i+1}}</a>   
-</div>-
+    </ul>-->
+    <!--
 <app-form-modal (submitEvent) = "generateButton($event)" >
 </app-form-modal>
 -->
-<!--<div #buttonsContainer style="display:flex;flex-wrap:wrap">
-</div>
-<button (click) = "generateButton()" >Click Here</button>
-
-<p>{{data|json}}</p> -->

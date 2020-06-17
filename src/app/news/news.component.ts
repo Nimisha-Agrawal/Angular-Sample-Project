@@ -1,4 +1,4 @@
-/*import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -18,4 +18,4 @@ export class NewsComponent implements OnInit {
   }
 
 }
-*/
+
