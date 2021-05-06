@@ -29,6 +29,7 @@ export class SearchService {
             console.log(res);
             // Success
             this.results = res['results'].map(item => {
+              console.log(item);
               return new SearchItem(
                 item.trackName,
                 item.artistName,
@@ -37,7 +38,7 @@ export class SearchService {
                 item.artistId
               );
             });
-            resolve();
+            resolve(this.results);
           },
           msg => {
             // Error

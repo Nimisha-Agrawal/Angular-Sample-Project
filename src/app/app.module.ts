@@ -9,7 +9,7 @@ import {FormsModule,ReactiveFormsModule}  from '@angular/forms';
 import {HttpClientModule,HttpClientJsonpModule,HttpClient, JsonpClientBackend}  from '@angular/common/http';
 import { NewsComponent } from './news/news.component';
 import { DigitDirective } from './digitOnly.directive';
-import {SortByPipe} from './SortData.pipe';
+import {SortByPipe} from './SortByPipe.pipe';
 import {simpleService} from './simpleService';
 import { ParentComponent } from './components/parent/parent.component';
 import { ChildComponent } from './components/child/child.component';
